@@ -26,7 +26,7 @@ Follow these steps to set up the boilerplate on your local machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/laravel-inertia-react-boilerplate.git
+git clone https://github.com/rfgonzales/inertia-react-laravel-breeze-mongodb-boilerplate.git
 cd laravel-inertia-react-boilerplate
 ```
 
@@ -49,7 +49,7 @@ on a separate terminal run `npm run dev`
 
 # License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [a link](LICENSE.md)LICENSE file for details.
 
 # Contributing
 
