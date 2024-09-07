@@ -60,12 +60,40 @@ If you want to contribute to this project, please follow these guidelines:
 -   Make your changes and test thoroughly.
 -   Submit a pull request with a clear description of the changes.
 
-# Acknowledgements
 
--   Laravel
--   Inertia.js
--   React
--   Laravel Breeze
--   MongoDB
--   Docker
--   Redis
+## License Information
+
+This project uses the following open-source libraries and tools:
+
+- **Laravel**
+  - **License:** [MIT License](https://opensource.org/licenses/MIT)
+  - **URL:** [GitHub Repository](https://github.com/laravel/laravel)
+
+- **Inertia.js**
+  - **License:** [MIT License](https://opensource.org/licenses/MIT)
+  - **URL:** [GitHub Repository](https://github.com/inertiajs/inertia)
+
+- **React**
+  - **License:** [MIT License](https://opensource.org/licenses/MIT)
+  - **URL:** [GitHub Repository](https://github.com/facebook/react)
+
+- **Laravel Breeze**
+  - **License:** [MIT License](https://opensource.org/licenses/MIT)
+  - **URL:** [GitHub Repository](https://github.com/laravel/breeze)
+
+- **MongoDB**
+  - **License:** [Server Side Public License (SSPL)](https://www.mongodb.com/licensing/server-side-public-license)
+  - **URL:** [MongoDB License Details](https://www.mongodb.com/legal/sspl)
+
+- **Docker**
+  - **License:** [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
+  - **URL:** [GitHub Repository](https://github.com/docker/docker)
+
+- **Redis**
+  - **License:** [Redis Source Available License (RSAL)](https://redis.io/topics/license)
+  - **URL:** [Redis License Details](https://redis.io/topics/license)
+
+## Additional Notes
+
+Please refer to the respective repositories or official documentation for full license details and any additional terms or conditions. Make sure to comply with all licensing requirements when using these libraries and tools in your project.
+
