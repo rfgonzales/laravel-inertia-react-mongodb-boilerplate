@@ -4,11 +4,12 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use MongoDB\Laravel\Eloquent\Model as Eloquent;
 
-class User extends Eloquent
+class User extends Eloquent implements AuthenticatableContract
 {
     use HasFactory, Notifiable, Authenticatable;
 
@@ -17,6 +18,8 @@ class User extends Eloquent
      *
      * @var array<int, string>
      */
+    protected $collection = "users";
+
     protected $fillable = [
         'name',
         'email',
