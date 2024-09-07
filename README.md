@@ -4,19 +4,20 @@ This boilerplate provides a starting point for Laravel applications using Inerti
 
 ## Features
 
-- **Laravel**: PHP framework for building web applications.
-- **Inertia.js**: Allows you to build modern single-page applications (SPAs) using classic server-side routing and controllers.
-- **React**: JavaScript library for building user interfaces.
-- **Laravel Breeze**: Simple authentication scaffolding for Laravel.
-- **MongoDB**: NoSQL database used as the default database.
-- **Docker**: Containerization for development and deployment.
+-   **Laravel**: PHP framework for building web applications.
+-   **Inertia.js**: Allows you to build modern single-page applications (SPAs) using classic server-side routing and controllers.
+-   **React**: JavaScript library for building user interfaces.
+-   **Laravel Breeze**: Simple authentication scaffolding for Laravel.
+-   **MongoDB**: NoSQL database used as the default database.
+-   **Docker**: Containerization for development and deployment.
+-   **Caching**: Uses Redis for caching
 
 ## Requirements
 
-- PHP >= 8.2
-- Node.js >= 18.x
-- MongoDB
-- Docker (for containerized environment)
+-   PHP >= 8.2
+-   Node.js >= 18.x
+-   MongoDB
+-   Docker (for containerized environment)
 
 ## Getting Started
 
@@ -30,34 +31,41 @@ cd laravel-inertia-react-boilerplate
 ```
 
 ### 2. Install PHP dependencies
+
 `composer install`
+
 ### 3. Install Node Dependencies
+
 `npm install`
 
 ### 4.Docker Setup (for Containerized Environments)
+
 `docker compose up -d`
 
-
 ## Usage
+
 to run the server `php artisan serve`
 on a separate terminal run `npm run dev`
 
 # License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-# Contributing 
+# Contributing
+
 If you want to contribute to this project, please follow these guidelines:
 
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Make your changes and test thoroughly.
-- Submit a pull request with a clear description of the changes.
+-   Fork the repository.
+-   Create a new branch for your feature or bug fix.
+-   Make your changes and test thoroughly.
+-   Submit a pull request with a clear description of the changes.
 
 # Acknowledgements
-- Laravel
-- Inertia.js
-- React
-- Laravel Breeze
-- MongoDB
 
-
+-   Laravel
+-   Inertia.js
+-   React
+-   Laravel Breeze
+-   MongoDB
+-   Docker
+-   Redis
