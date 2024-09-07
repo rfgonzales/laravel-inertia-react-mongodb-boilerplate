@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - default
+  redis:
+    image: redis:latest
+    container_name: redis_cache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - default
+  laravel:
+    container_name: laravel-dev-server
+    build:
+      dockerfile: "/docker/laravel/dockerfile"
+    depends_on:
+      - redis
+      - mongodb
+    ports:
+      - 80:80
+      - 5173:5173
+      - 3000:3000
+    volumes:
+      - .:/var/www/html
+    command:
+      [
+        "sh",
+        "-c",
+        "chown -R www-data:www-data /var/www/html/storage && apache2ctl -D FOREGROUND",
+      ]
+    networks:
+      - default

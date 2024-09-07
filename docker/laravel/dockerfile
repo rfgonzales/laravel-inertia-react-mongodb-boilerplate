@@ -1,0 +1,69 @@
+# Use an official Ubuntu 22.04 as a base image
+FROM php:8.2-apache
+
+# Maintainer information
+LABEL maintainer="RFGONZALES12@gmail.com"
+
+# Set environment variables
+ENV SHELL=/bin/bash \
+    LANG=en_US.utf8 \
+    LC_ALL=C.UTF-8
+
+# Set locale to UTF-8 and install necessary packages
+# Set locale to UTF-8 and install necessary packages and PHP extensions
+RUN apt-get update \
+    && apt-get install -y \
+    software-properties-common \
+    libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    libcurl4-openssl-dev \
+    libicu-dev \
+    libpq-dev \
+    git \
+    unzip \
+    curl \
+    # Install PHP extensions
+    && docker-php-ext-install \
+    gd \
+    mbstring \
+    xml \
+    zip \
+    pdo \
+    pdo_mysql \
+    mysqli \
+    && pecl install mongodb redis \
+    && docker-php-ext-enable mongodb redis \
+    # Clean up
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configure Apache to work with PHP directly
+RUN a2enmod rewrite \
+    && a2dissite 000-default.conf
+
+# Configure Apache with the custom configuration file
+COPY docker/001-application.conf /etc/apache2/sites-available/001-application.conf
+RUN a2ensite 001-application.conf
+
+# Download and install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+# Install node
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest
+
+# Set the working directory
+WORKDIR /var/www/html
+
+
+# Expose port 80
+EXPOSE 80 3000
+
+# Use the default command provided by the base image to start Apache
+CMD ["apache2ctl", "-D", "FOREGROUND"]
