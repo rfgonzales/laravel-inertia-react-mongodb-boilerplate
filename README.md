@@ -49,7 +49,7 @@ on a separate terminal run `npm run dev`
 
 # License
 
-This project is licensed under the MIT License. See the [a link](LICENSE.md)LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
 # Contributing
 
