@@ -22,20 +22,20 @@ services:
       - "6379:6379"
     networks:
       - default
-  laravel:
-    container_name: laravel-dev-server
-    build:
-      dockerfile: "/docker/laravel/dockerfile"
-    depends_on:
-      - redis
-      - mongodb
-    ports:
-      - 8000:8000
-      - 5173:5173
-      - 3000:3000
-      - 13714:13714
-    volumes:
-      - .:/var/www/html
-    command: ["sh", "-c", "php artisan serve --host=0.0.0.0"]
-    networks:
-      - default
+  # laravel:
+  #   container_name: laravel-dev-server
+  #   build:
+  #     dockerfile: "/docker/laravel/dockerfile"
+  #   depends_on:
+  #     - redis
+  #     - mongodb
+  #   ports:
+  #     - 8000:8000
+  #     - 5173:5173
+  #     - 3000:3000
+  #     - 13714:13714
+  #   volumes:
+  #     - .:/var/www/html
+  #   command: ["sh", "-c", "php artisan serve --host=0.0.0.0"]
+  #   networks:
+  #     - default
