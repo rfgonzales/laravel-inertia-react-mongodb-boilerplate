@@ -57,7 +57,7 @@ WORKDIR /var/www/html
 
 
 # Expose port 80
-EXPOSE 8000 3000 5173 13714
+EXPOSE 8000 80
 
 # Use the default command provided by the base image to start Apache
 # Command to keep the container running
