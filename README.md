@@ -1,6 +1,6 @@
 # Laravel Inertia React MongoDB Boilerplate
 
-This boilerplate provides a starting point for Laravel applications using Inertia.js with React. It integrates Laravel Breeze for authentication and uses MongoDB as the default database. This setup helps streamline the development process for modern web applications with a robust stack.
+This boilerplate provides a starting point for Laravel applications using Laravel 11 using Inertia.js with React. It integrates Laravel Breeze for authentication and uses MongoDB as the default database. This setup helps streamline the development process for modern web applications with a robust stack.
 
 ## Features
 

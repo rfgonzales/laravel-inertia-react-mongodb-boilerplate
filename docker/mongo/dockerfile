@@ -1,0 +1,11 @@
+# Use the official MongoDB image as a base
+FROM mongo:latest
+
+# Copy the initialization script into the image
+COPY ./docker/scripts/init-replica-set.sh /scripts/
+
+# Set permissions for the script
+RUN chmod +x /scripts/init-replica-set.sh
+
+# Set the default command to execute
+CMD ["/scripts/init-replica-set.sh"]
