@@ -1,19 +1,19 @@
 version: "3.9"
 
 services:
-  node:
-    container_name: node
-    build:
-      dockerfile: "/docker/node/dockerfile"
-    restart: unless-stopped
-    volumes:
-      - .:/var/www/html
-    ports:
-      - 5173:5173
-      - 3000:3000
-      - 13714:13714
-    networks:
-      - default
+  # node:
+  #   container_name: node
+  #   build:
+  #     dockerfile: "/docker/node/dockerfile"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - .:/var/www/html
+  #   ports:
+  #     - 5173:5173
+  #     - 3000:3000
+  #     - 13714:13714
+  #   networks:
+  #     - default
 
   mongodb:
     image: mongo:latest
@@ -36,19 +36,19 @@ services:
       - "6379:6379"
     networks:
       - default
-  laravel:
-    container_name: laravel-dev-server
-    build:
-      dockerfile: "/docker/laravel/dockerfile"
-    depends_on:
-      - redis
-      - mongodb
-      - node
-    ports:
-      - 8000:8000
+  # laravel:
+  #   container_name: laravel-dev-server
+  #   build:
+  #     dockerfile: "/docker/laravel/dockerfile"
+  #   depends_on:
+  #     - redis
+  #     - mongodb
+  #     - node
+  #   ports:
+  #     - 8000:8000
 
-    volumes:
-      - .:/var/www/html
-    command: ["sh", "-c", "php artisan serve --host=0.0.0.0"]
-    networks:
-      - default
+  #   volumes:
+  #     - .:/var/www/html
+  #   command: ["sh", "-c", "php artisan serve --host=0.0.0.0"]
+  #   networks:
+  #     - default
