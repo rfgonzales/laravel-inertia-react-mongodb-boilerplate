@@ -24,7 +24,19 @@ export default {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
         },
+        screens: {
+            //matching bootsrap breakouts to avoid problems with react-bootstrap
+            sm: "576px",
+            md: "768px",
+            lg: "992px",
+            xl: "1200px",
+            xxl: "1400px",
+            "2xl": "1400px",
+        },
+        colors: {
+            red: "#cc0000",
+        },
     },
 
-    plugins: [forms],
+    plugins: [],
 };

@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
+import { Button, FormControl } from 'react-bootstrap';
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -32,34 +33,34 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
-                    <TextInput
-                        id="email"
+                    <FormControl id="email"
                         type="email"
                         name="email"
                         value={data.email}
-                        className="tw-mt-1 tw-block tw-w-full"
+
                         autoComplete="username"
-                        isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
+
+                        onChange={(e) => setData('email', e.target.value)}>
+
+                    </FormControl>
 
                     <InputError message={errors.email} className="tw-mt-2" />
                 </div>
 
                 <div className="tw-mt-4">
                     <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
+                    <FormControl id="password"
                         type="password"
                         name="password"
                         value={data.password}
                         className="tw-mt-1 tw-block tw-w-full"
                         autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
+                        onChange={(e) => setData('password', e.target.value)}>
 
-                    <InputError message={errors.password} className="tw-mt-2" />
+                    </FormControl>
+
+
+                    <InputError message={errors.password} className="tw-mt-2 tw-text-red" />
                 </div>
 
                 <div className="tw-block tw-mt-4">
@@ -83,9 +84,9 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         </Link>
                     )}
 
-                    <PrimaryButton className="tw-ms-4" disabled={processing}>
+                    <Button variant="primary" className="tw-ms-4" disabled={processing} type='submit'>
                         Log in
-                    </PrimaryButton>
+                    </Button >
                 </div>
             </form>
         </GuestLayout>
