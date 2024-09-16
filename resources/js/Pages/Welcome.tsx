@@ -24,7 +24,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<
                                 {auth.user ? (
                                     <Link
                                         href={route('dashboard')}
-                                        className="tw-rounded-md tw-px-3 tw-py-2 tw-text-black tw-ring-1 tw-ring-transparent tw-transition hover:tw-text-black/70 focus:tw-outline-none focus-visible:tw-ring-[#FF2D20] dark:tw-text-white dark:hover:tw-text-white/80 dark:focus-visible:tw-ring-white"
+                                        className="tw-rounded-md tw-px-3 tw-py-2 tw-text-black tw-ring-transparent tw-transition hover:tw-text-black/70 focus:tw-outline-none focus-visible:tw-ring-[#FF2D20] dark:tw-text-white dark:hover:tw-text-white/80 dark:focus-visible:tw-ring-white"
                                     >
                                         Dashboard
                                     </Link>
@@ -38,7 +38,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<
                                         </Link>
                                         <Link
                                             href={route('register')}
-                                            className="tw-rounded-md tw-px-3 tw-py-2 tw-text-black tw-ring-1 tw-ring-transparent tw-transition hover:tw-text-black/70 focus:tw-outline-none focus-visible:tw-ring-[#FF2D20] dark:tw-text-white dark:hover:tw-text-white/80 dark:focus-visible:tw-ring-white">
+                                            className="tw-rounded-md tw-px-3 tw-py-2 tw-text-black  tw-ring-transparent tw-transition hover:tw-text-black/70 focus:tw-outline-none focus-visible:tw-ring-[#FF2D20] dark:tw-text-white dark:hover:tw-text-white/80 dark:focus-visible:tw-ring-white">
                                             Register
                                         </Link>
                                     </>
