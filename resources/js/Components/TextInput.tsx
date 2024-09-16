@@ -20,11 +20,9 @@ export default forwardRef(function TextInput(
         <input
             {...props}
             type={type}
-            className={
-                'tw-border-gray-300 dark:tw-border-gray-700 dark:tw-bg-gray-900 dark:tw-text-gray-300 focus:tw-border-indigo-500 dark:tw-focus:border-indigo-600 focus:tw-ring-indigo-500 dark:tw-focus:ring-indigo-600 tw-rounded-md tw-shadow-sm ' +
-                className
-            }
+            className={`tw-border-gray-300 dark:tw-border-gray-700 dark:tw-bg-gray-900 dark:tw-text-gray-300 focus:tw-border-indigo-500 dark:tw-focus:border-indigo-600 focus:tw-ring-indigo-500 dark:tw-focus:ring-indigo-600 tw-rounded-md tw-shadow-sm ${className}`}
             ref={localRef}
         />
+
     );
 });
