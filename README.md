@@ -11,6 +11,10 @@ This boilerplate provides a starting point for Laravel applications using Larave
 -   **MongoDB**: NoSQL database used as the default database.
 -   **Docker**: Containerization for development and deployment.
 -   **Caching**: Uses Redis for caching
+-   **Tailwind CSS**: Uses Tailwind utilities for styling
+-   **React Bootstrap**: Uses ReactBootstrap Components.
+-   **MATCHED breakpoints**: Bootstrap and Tailwind breakpoints matched for layout consistency
+-   
 
 ## Requirements
 
@@ -46,6 +50,8 @@ cd laravel-inertia-react-boilerplate
 
 to run the server `php artisan serve`
 on a separate terminal run `npm run dev`
+
+use `tw-` prefix to tailwind classes
 
 # License
 
