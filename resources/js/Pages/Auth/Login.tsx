@@ -78,7 +78,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="tw-underline tw-text-sm tw-text-gray-600 dark:tw-text-gray-400 hover:tw-text-gray-900 dark:tw-hover:text-gray-100 tw-rounded-md focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-indigo-500 dark:tw-focus:tw-ring-offset-gray-800"
+                            className="tw-underline tw-text-sm tw-text-gray-600 dark:tw-text-gray-400 hover:tw-text-gray-900 dark:tw-hover:text-gray-100 tw-rounded-md focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-offset-2 focus:tw-ring-indigo-500 dark:focus:tw-tw-ring-offset-gray-800"
                         >
                             Forgot your password?
                         </Link>

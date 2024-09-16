@@ -21,7 +21,7 @@ const Dropdown = ({ children }: PropsWithChildren) => {
 
     return (
         <DropDownContext.Provider value={{ open, setOpen, toggleOpen }}>
-            <div className="relative">{children}</div>
+            <div className="tw-relative">{children}</div>
         </DropDownContext.Provider>
     );
 };
@@ -33,26 +33,26 @@ const Trigger = ({ children }: PropsWithChildren) => {
         <>
             <div onClick={toggleOpen}>{children}</div>
 
-            {open && <div className="fixed inset-0 z-40" onClick={() => setOpen(false)}></div>}
+            {open && <div className="tw-fixed tw-inset-0 tw-z-40" onClick={() => setOpen(false)}></div>}
         </>
     );
 };
 
-const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-white dark:bg-gray-700', children }: PropsWithChildren<{ align?: 'left' | 'right', width?: '48', contentClasses?: string }>) => {
+const Content = ({ align = 'right', width = '48', contentClasses = 'tw-py-1 tw-bg-white dark:tw-bg-gray-700', children }: PropsWithChildren<{ align?: 'left' | 'right', width?: '48', contentClasses?: string }>) => {
     const { open, setOpen } = useContext(DropDownContext);
 
-    let alignmentClasses = 'origin-top';
+    let alignmentClasses = 'tw-origin-top';
 
     if (align === 'left') {
-        alignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0';
+        alignmentClasses = 'ltr:tw-origin-top-left rtl:tw-origin-top-right tw-start-0';
     } else if (align === 'right') {
-        alignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0';
+        alignmentClasses = 'ltr:tw-origin-top-right rtl:tw-origin-top-left tw-end-0';
     }
 
     let widthClasses = '';
 
     if (width === '48') {
-        widthClasses = 'w-48';
+        widthClasses = 'tw-w-48';
     }
 
     return (
@@ -83,7 +83,7 @@ const DropdownLink = ({ className = '', children, ...props }: InertiaLinkProps) 
         <Link
             {...props}
             className={
-                'block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 transition duration-150 ease-in-out ' +
+                'tw-block tw-w-full tw-px-4 tw-py-2 tw-text-start tw-text-sm tw-leading-5 tw-text-gray-700 dark:tw-text-gray-300 hover:tw-bg-gray-100 dark:hover:tw-bg-gray-800 focus:tw-outline-none focus:tw-bg-gray-100 dark:focus:tw-bg-gray-800 tw-transition tw-duration-150 tw-ease-in-out ' +
                 className
             }
         >
