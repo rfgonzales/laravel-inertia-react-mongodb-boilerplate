@@ -22,12 +22,75 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./mongodb-data:/data/db
+      - ./mongodb-data/mongo:/data/db
+      - ./mongodb-keyfile/keyfile:/etc/secrets/keyfile
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
     networks:
       - default
+    command: >
+      bash -c "chmod 600 /etc/secrets/keyfile && 
+              mongod --bind_ip_all --replSet rs0 --keyFile /etc/secrets/keyfile"
+  mongodb1:
+    image: mongo:latest
+    container_name: mongodb1
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongodb-data/mongo1:/data/db
+      - ./mongodb-keyfile/keyfile:/etc/secrets/keyfile
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - default
+    command: >
+      bash -c "chmod 600 /etc/secrets/keyfile && 
+              mongod --bind_ip_all --replSet rs0 --keyFile /etc/secrets/keyfile"
+  mongodb2:
+    image: mongo:latest
+    container_name: mongodb2
+    restart: unless-stopped
+    ports:
+      - "27019:27017"
+    volumes:
+      - ./mongodb-data/mongo2:/data/db
+      - ./mongodb-keyfile/keyfile:/etc/secrets/keyfile
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - default
+    command: >
+      bash -c "chmod 600 /etc/secrets/keyfile && 
+              mongod --bind_ip_all --replSet rs0 --keyFile /etc/secrets/keyfile"
+  mongo-setup:
+    image: mongo:latest
+    container_name: mongo-setup
+    networks:
+      - default
+    depends_on:
+      - mongodb
+      - mongodb1
+      - mongodb2
+    entrypoint: >
+      bash -c "
+      echo 'Waiting for MongoDB to start...';
+      until mongosh --host mongodb1:27017 --eval 'print(\"waited for connection\")'; do
+        sleep 5;
+      done;
+      echo 'Configuring replica set';
+      mongosh --host mongodb1:27017 -u root -p admin --authenticationDatabase admin --eval 'rs.initiate({
+        _id: \"rs0\",
+        members: [
+          { _id: 0, host: \"mongodb:27017\" },
+          { _id: 1, host: \"mongodb1:27017\" },
+          { _id: 2, host: \"mongodb2:27017\" }
+        ]
+      });'
+      "
   redis:
     image: redis:latest
     container_name: redis_cache
