@@ -78,11 +78,12 @@ services:
     entrypoint: >
       bash -c "
       echo 'Waiting for MongoDB to start...';
-      until mongosh --host mongodb1:27017 --eval 'print(\"waited for connection\")'; do
-        sleep 5;
+      sleep 10;
+      until mongosh --host mongodb:27017 --eval 'print(\"waited for connection\")'; do
+        sleep 10;
       done;
       echo 'Configuring replica set';
-      mongosh --host mongodb1:27017 -u root -p admin --authenticationDatabase admin --eval 'rs.initiate({
+      mongosh --host mongodb:27017 -u root -p admin --authenticationDatabase admin --eval 'rs.initiate({
         _id: \"rs0\",
         members: [
           { _id: 0, host: \"mongodb:27017\" },
