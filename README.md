@@ -14,7 +14,7 @@ This boilerplate provides a starting point for Laravel applications using Larave
 -   **Tailwind CSS**: Uses Tailwind utilities for styling
 -   **React Bootstrap**: Uses ReactBootstrap Components.
 -   **MATCHED breakpoints**: Bootstrap and Tailwind breakpoints matched for layout consistency
--   
+-
 
 ## Requirements
 
@@ -53,6 +53,20 @@ on a separate terminal run `npm run dev`
 
 use `tw-` prefix to tailwind classes
 
+## Mongodb Replication
+
+docker-compose file already has mongodb replication setup, to start
+you have to
+
+-   start only one mongodb(the primary preferred) container first to enable the mongodb to setup primary databases.
+-   then turn it of,
+-   and then start all mongodb containers including the mongo-setup container
+-   check logs of mongo-setup container if okay, if not? restart the container.
+
+## Troubleshooting
+
+-   please refer to mongodb official site for issues with laravel-mongodb
+
 # License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
@@ -66,40 +80,44 @@ If you want to contribute to this project, please follow these guidelines:
 -   Make your changes and test thoroughly.
 -   Submit a pull request with a clear description of the changes.
 
-
 ## License Information
 
 This project uses the following open-source libraries and tools:
 
-- **Laravel**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/laravel/laravel)
+-   **Laravel**
 
-- **Inertia.js**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/inertiajs/inertia)
+    -   **License:** [MIT License](https://opensource.org/licenses/MIT)
+    -   **URL:** [GitHub Repository](https://github.com/laravel/laravel)
 
-- **React**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/facebook/react)
+-   **Inertia.js**
 
-- **Laravel Breeze**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/laravel/breeze)
+    -   **License:** [MIT License](https://opensource.org/licenses/MIT)
+    -   **URL:** [GitHub Repository](https://github.com/inertiajs/inertia)
 
-- **MongoDB**
-  - **License:** [Server Side Public License (SSPL)](https://www.mongodb.com/licensing/server-side-public-license)
-  - **URL:** [MongoDB License Details](https://www.mongodb.com/legal/sspl)
+-   **React**
 
-- **Docker**
-  - **License:** [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
-  - **URL:** [GitHub Repository](https://github.com/docker/docker)
+    -   **License:** [MIT License](https://opensource.org/licenses/MIT)
+    -   **URL:** [GitHub Repository](https://github.com/facebook/react)
 
-- **Redis**
-  - **License:** [Redis Source Available License (RSAL)](https://redis.io/topics/license)
-  - **URL:** [Redis License Details](https://redis.io/topics/license)
+-   **Laravel Breeze**
+
+    -   **License:** [MIT License](https://opensource.org/licenses/MIT)
+    -   **URL:** [GitHub Repository](https://github.com/laravel/breeze)
+
+-   **MongoDB**
+
+    -   **License:** [Server Side Public License (SSPL)](https://www.mongodb.com/licensing/server-side-public-license)
+    -   **URL:** [MongoDB License Details](https://www.mongodb.com/legal/sspl)
+
+-   **Docker**
+
+    -   **License:** [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
+    -   **URL:** [GitHub Repository](https://github.com/docker/docker)
+
+-   **Redis**
+    -   **License:** [Redis Source Available License (RSAL)](https://redis.io/topics/license)
+    -   **URL:** [Redis License Details](https://redis.io/topics/license)
 
 ## Additional Notes
 
 Please refer to the respective repositories or official documentation for full license details and any additional terms or conditions. Make sure to comply with all licensing requirements when using these libraries and tools in your project.
-
