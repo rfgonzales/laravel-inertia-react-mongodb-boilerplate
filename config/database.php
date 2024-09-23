@@ -32,6 +32,13 @@ return [
     'connections' => [
         'mongodb' => [
             'driver'   => 'mongodb',
+            // 'dsn' => env('DB_URI', sprintf(
+            //     'mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority',
+            //     env('DB_USERNAME', 'username'),
+            //     env('DB_PASSWORD', 'password'),
+            //     env('DB_HOST', 'cluster-url'), // Set your cluster URL here
+            //     env('DB_DATABASE', 'myappdb')
+            // )),
             'host'     => env('DB_HOST', 'localhost'),
             'port'     => env('DB_PORT', 27017),
             'database' => env('DB_DATABASE'),
