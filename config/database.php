@@ -37,7 +37,7 @@ return [
             //     env('DB_USERNAME', 'username'),
             //     env('DB_PASSWORD', 'password'),
             //     env('DB_HOST', 'cluster-url'), // Set your cluster URL here
-            //     env('DB_DATABASE', 'myappdb')
+            //     env('DB_DATABASE', 'boilerplate')
             // )),
             'host'     => env('DB_HOST', 'localhost'),
             'port'     => env('DB_PORT', 27017),
