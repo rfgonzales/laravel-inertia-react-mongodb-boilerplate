@@ -1,5 +1,5 @@
-# Use an official Ubuntu 22.04 as a base image
-FROM php:8.2-cli
+# Use PHP 8.4 CLI as the base image
+FROM php:8.4-cli
 
 # Maintainer information
 LABEL maintainer="RFGONZALES12@gmail.com"
@@ -9,7 +9,6 @@ ENV SHELL=/bin/bash \
     LANG=en_US.utf8 \
     LC_ALL=C.UTF-8
 
-# Set locale to UTF-8 and install necessary packages
 # Set locale to UTF-8 and install necessary packages and PHP extensions
 RUN apt-get update \
     && apt-get install -y \
@@ -26,7 +25,6 @@ RUN apt-get update \
     git \
     unzip \
     curl \
-    # Install PHP extensions
     && docker-php-ext-install \
     gd \
     mbstring \
@@ -37,23 +35,14 @@ RUN apt-get update \
     mysqli \
     && pecl install mongodb redis \
     && docker-php-ext-enable mongodb redis \
-    # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-
 
 # Download and install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-
-# Set the working directory
 WORKDIR /var/www/html
 
-
-# Expose port 80
 EXPOSE 8000 80
 
-# Use the default command provided by the base image to start Apache
-# Command to keep the container running
 CMD ["tail", "-f", "/dev/null"]
