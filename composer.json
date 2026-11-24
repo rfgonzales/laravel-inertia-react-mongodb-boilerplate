@@ -6,22 +6,22 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "inertiajs/inertia-laravel": "^1.0",
-        "laravel/framework": "^11.9",
-        "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.9",
-        "mongodb/laravel-mongodb": "5.1",
-        "mongodb/mongodb": "^1.20",
-        "tightenco/ziggy": "^2.0"
+        "inertiajs/inertia-laravel": "^3.8",
+        "laravel/framework": "^13.44",
+        "laravel/sanctum": "^4.5",
+        "laravel/tinker": "^3.2",
+        "mongodb/laravel-mongodb": "^5.12",
+        "mongodb/mongodb": "^2.5",
+        "tightenco/ziggy": "^2.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
-        "laravel/breeze": "^2.1",
-        "laravel/pint": "^1.13",
+        "laravel/breeze": "^2.4",
+        "laravel/pint": "^1.32",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0.1"
+        "phpunit/phpunit": "^13.4"
     },
     "autoload": {
         "psr-4": {
@@ -48,7 +48,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ]
     },

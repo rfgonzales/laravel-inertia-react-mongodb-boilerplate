@@ -1,110 +1,62 @@
 # Laravel Inertia React MongoDB Boilerplate
 
-This boilerplate provides a starting point for Laravel 11 applications using Inertia.js with React. It integrates Laravel Breeze for authentication and uses MongoDB as the default database.
+This boilerplate provides a starting point for Laravel 13 applications using Inertia.js with React 19 and MongoDB as the default database.
 
 ## Features
 
-- **Laravel**: PHP framework for building web applications.
-- **Inertia.js**: Allows you to build modern single-page applications (SPAs) using classic server-side routing and controllers.
-- **React**: JavaScript library for building user interfaces.
-- **Laravel Breeze**: Simple authentication scaffolding for Laravel.
-- **MongoDB**: NoSQL database used as the default database.
-- **Docker**: Containerization for development and deployment.
-- **Caching**: Uses Redis for caching.
-- **Tailwind CSS**: Uses Tailwind utilities for styling.
-- **React Bootstrap**: Uses React Bootstrap components.
-- **Matched breakpoints**: Bootstrap and Tailwind breakpoints matched for layout consistency.
+- **Laravel 13**: PHP framework for building web applications.
+- **PHP 8.4**: Required application runtime.
+- **Inertia.js 3**: Modern single-page applications using server-side routing.
+- **React 19**: JavaScript library for building user interfaces.
+- **Laravel Breeze**: Authentication scaffolding.
+- **MongoDB**: Default database with the Laravel MongoDB integration.
+- **Docker**: Development and deployment containers.
+- **Redis**: Caching support.
+- **Tailwind CSS 4**: Utility-first styling.
+- **React Bootstrap**: UI components.
 
 ## Requirements
 
 - PHP >= 8.4
-- Node.js >= 18.x
+- Node.js >= 24.x
 - MongoDB
-- Docker (for containerized environment)
+- Docker
 
 ## Getting Started
 
-Follow these steps to set up the boilerplate on your local machine:
-
-### 1. Clone the Repository
-
 ```bash
-git clone https://github.com/rfgonzales/inertia-react-laravel-breeze-mongodb-boilerplate.git
-cd laravel-inertia-react-boilerplate
+git clone https://github.com/rfgonzales/laravel-inertia-react-mongodb-boilerplate.git
+cd laravel-inertia-react-mongodb-boilerplate
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
 ```
 
-### 2. Install PHP dependencies
+### Docker
 
-`composer install`
+```bash
+docker compose up -d
+```
 
-### 3. Install Node Dependencies
+### Development
 
-`npm install`
+Run the server in one terminal:
 
-### 4. Docker Setup (for Containerized Environments)
+```bash
+php artisan serve
+```
 
-`docker compose up -d`
+Run Vite in another terminal:
 
-## Usage
+```bash
+npm run dev
+```
 
-to run the server `php artisan serve`
-on a separate terminal run `npm run dev`
+## MongoDB Replication
 
-use `tw-` prefix to tailwind classes
+The Docker Compose configuration includes MongoDB replication setup. Start the primary MongoDB container first, stop it, then start all MongoDB containers and the setup container. Review the setup container logs for replication errors.
 
-## Mongodb Replication
+## License
 
-docker-compose file already has mongodb replication setup, to start
-you have to
-
-- start only one mongodb (the primary preferred) container first to enable the mongodb to setup primary databases.
-- then turn it off,
-- and then start all mongodb containers including the mongo-setup container
-- check logs of mongo-setup container if okay, if not? restart the container.
-
-## Troubleshooting
-
-- please refer to mongodb official site for issues with laravel-mongodb
-
-# License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
-
-# Contributing
-
-If you want to contribute to this project, please follow these guidelines:
-
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Make your changes and test thoroughly.
-- Submit a pull request with a clear description of the changes.
-
-## License Information
-
-This project uses the following open-source libraries and tools:
-
-- **Laravel**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/laravel/laravel)
-- **Inertia.js**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/inertiajs/inertia)
-- **React**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/facebook/react)
-- **Laravel Breeze**
-  - **License:** [MIT License](https://opensource.org/licenses/MIT)
-  - **URL:** [GitHub Repository](https://github.com/laravel/breeze)
-- **MongoDB**
-  - **License:** [Server Side Public License (SSPL)](https://www.mongodb.com/licensing/server-side-public-license)
-  - **URL:** [MongoDB License Details](https://www.mongodb.com/legal/sspl)
-- **Docker**
-  - **License:** [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
-  - **URL:** [GitHub Repository](https://github.com/docker/docker)
-- **Redis**
-  - **License:** [Redis Source Available License (RSAL)](https://redis.io/topics/license)
-  - **URL:** [Redis License Details](https://redis.io/topics/license)
-
-## Additional Notes
-
-Please refer to the respective repositories or official documentation for full license details and any additional terms or conditions. Make sure to comply with all licensing requirements when using them.
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md).

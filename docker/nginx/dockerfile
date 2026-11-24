@@ -1,9 +1,6 @@
-# Dockerfile
-
 # Use the official PHP 8.4 FPM image
 FROM php:8.4-fpm
 
-# Install Nginx
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     libzip-dev \
@@ -31,9 +28,8 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Download and install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 EXPOSE 80
 
-CMD php-fpm
+CMD ["php-fpm"]
